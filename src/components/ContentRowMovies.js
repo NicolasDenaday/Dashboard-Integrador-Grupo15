@@ -1,38 +1,72 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import SmallCard from './SmallCard';
 
-/*  Cada set de datos es un objeto literal */
 
-/* <!-- Movies in DB --> */
 
-let moviesInDB = {
-    title: 'Movies in Data Base',
-    color: 'primary', 
-    cuantity: 21,
-    icon: 'fa-clipboard-list'
-}
-
-/* <!-- Total awards --> */
-
-let totalAwards = {
-    title:' Total awards', 
-    color:'success', 
-    cuantity: '79',
-    icon:'fa-award'
-}
-
-/* <!-- Actors quantity --> */
-
-let actorsQuantity = {
-    title:'Actors quantity' ,
-    color:'warning',
-    cuantity:'49',
-    icon:'fa-user-check'
-}
-
-let cartProps = [moviesInDB, totalAwards, actorsQuantity];
 
 function ContentRowMovies(){
+    const [coffee, setCoffee] = useState([]);
+    const [grindings, setGrinding] = useState([]);
+    const [users, setUser] = useState([]);
+
+
+    useEffect(() => {
+        fetch("http://localhost:3030/api/product")
+          .then((response) => {
+            return response.json();
+          })
+          .then((coffees) => {
+            setCoffee(coffees.data);
+          })
+          .catch((error) => console.log(error));
+      }, []);
+    
+      useEffect(() => {
+        fetch("http://localhost:3030/api/grinding")
+          .then((response) => {
+            return response.json();
+          })
+          .then((grinding) => {
+            setGrinding(grinding.data);
+          })
+          .catch((error) => console.log(error));
+      }, []);
+
+      useEffect(() => {
+        fetch("http://localhost:3030/api/user")
+          .then((response) => {
+            return response.json();
+          })
+          .then((users) => {
+            setUser(users.data);
+          })
+          .catch((error) => console.log(error));
+      }, []);
+    
+    
+    let ProductsInDb = {
+        title: 'Products in Data Base',
+        color: 'primary', 
+        cuantity: coffee.length,
+        icon: 'fa-coffee'
+    }
+       
+    let Users = {
+        title:' Total Users', 
+        color:'success', 
+        cuantity: users.length,
+        icon:'fa-user-check'
+    }    
+    
+    let Grindings = {
+        title:'Grindings Types' ,
+        color:'warning',
+        cuantity: grindings.length,
+        icon:'fa-seedling'
+    }
+    
+    let cartProps = [ProductsInDb, Users, Grindings];
+
     return (
     
         <div className="row">

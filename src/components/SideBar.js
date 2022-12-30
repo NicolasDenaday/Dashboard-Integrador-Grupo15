@@ -28,7 +28,7 @@ function SideBar(){
                 <li className="nav-item active">
                     <Link className="nav-link" to="/">
                         <i className="fas fa-fw fa-tachometer-alt"></i>
-                        <span>Dashboard - DH movies</span></Link>
+                        <span>Dashboard - Blended Cafe</span></Link>
                 </li>
 
                 {/*<!-- Divider -->*/}
