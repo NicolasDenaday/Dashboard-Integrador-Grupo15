@@ -17,12 +17,12 @@ function GrindingsInDb() {
 
   function background() {
     let container = document.querySelector(".backgroundContainer");
-    container.classList.toggle("bg-secondary");
+    container.classList.toggle("bg-warning");
   }
 
   return (
     <React.Fragment>
-      <div className="col-lg-6 mb-4 bg-secondary">
+      <div className="col-lg-6 mb-4">
         <div className="card shadow mb-4">
           <div className="card-header py-3">
             <h6

@@ -22,7 +22,6 @@ function SmallCard(props){
     )
 }
 
-/* DEFINICIÓN DE PROPIEDADES POR DEFAULT */
 
 SmallCard.defaultProps = {
     title: 'No Title',
@@ -30,8 +29,6 @@ SmallCard.defaultProps = {
     cuantity: 'No cuatity',
     icon: 'fa-clipboard-list'
 }
-
-/* PROPTYPES */
 
 SmallCard.propTypes = {
     atritutes: PropTypes.shape({
